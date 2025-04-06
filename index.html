@@ -58,9 +58,9 @@
         }
 
         h1 {
-            font-size: 3.5em; /* Mycket större inledande rubrik */
+            font-size: 3.5em;
             margin-bottom: 20px;
-            animation: mainTitle 1.2s ease-out; /* Ny animation */
+            animation: mainTitle 1.2s ease-out;
         }
 
         @keyframes mainTitle {
@@ -236,7 +236,7 @@
         }
 
         .agenda-details {
-            text-align: center;
+            text-align: left;
             margin-top: 40px;
             line-height: 1.8;
             background-color: #fdf5e6;
@@ -306,24 +306,33 @@
             margin-right: 8px;
         }
 
-        .horse-image {
+        .horse-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* 8 columns */
+            gap: 10px;
             width: 100%;
-            max-height: 600px;
+            max-width: 1200px; /* Adjust as needed */
+            margin: 20px auto; /* Center the grid */
+        }
+
+        .horse-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            aspect-ratio: 2/3;
             transition: transform 0.3s ease;
         }
 
-        .horse-image:hover {
-            transform: scale(1.01);
+        .horse-grid img:hover {
+            transform: scale(1.05);
         }
 
         .agenda-title {
             text-align: center;
             margin-top: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-size: 2.5em;
             animation: fadeInUp 1s ease-out;
         }
@@ -338,6 +347,12 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        .agenda-description {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
         }
 
         .location {
@@ -433,6 +448,12 @@
             .map-iframe {
                 height: 300px;
             }
+
+            .horse-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(4, auto);
+                gap: 8px;
+            }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap"
@@ -442,26 +463,35 @@
 <body>
     <div class="container">
         <h1 class="heart">💖</h1>
-        <h1 class="fluffy-text">Fluffiga flickor på Kyrkekvarn 2025</h1>
+        <h2 class="agenda-title">Fluffigas Vårträff 2025</h2>
         <p class="fluffy-text" style="font-size: 1.2em;">En oförglömlig helg på idylliska Kyrkekvarn, fylld med glädje, stil och äventyr.</p>
 
-        <img src="https://kyrkekvarn.com/wp-content/uploads/IMG_5959-900x430.jpg" alt="Hästar på Kyrkekvarn" class="horse-image">
-
-        <h2 class="agenda-title">Fluffigas Vårträff 2025</h2>
+        <div class="horse-grid">
+            <img src="images/moa-anime.png" alt="Moa">
+            <img src="images/felicia-anime.png" alt="Felicia">
+            <img src="images/annie-anime.png" alt="Annie">
+            <img src="images/fanny-anime.png" alt="Fanny">
+            <img src="images/charlotte-anime.png" alt="Charlotte">
+            <img src="images/daniela-anime.png" alt="Daniela">
+            <img src="images/lejla-anime.png" alt="Lejla">
+            <img src="images/johanna-anime.png" alt="Johanna">
+        </div>
 
         <div class="event-details">
-
             <div class="day">
                 <h3>Fredag - Elegant Välkomst</h3>
-                <p><span class="highlight">14:00</span> Ankomst & Incheckning</p>
-                <p><span class="highlight">19:00</span> "Fluffig Chic" Tapas & Prosecco (Dress code: avslappnat elegant)</p>
-                <p>Kvällen avslutas med bubbelbad & bastu.</p>
+                <p><span class="highlight">10:00</span> Avgång från Halmstad</p>
+                <p><span class="highlight">16:30</span> Ankomst & Incheckning Stallstugan Kyrkekvarn</p>
+                <p><span class="highlight">18:30</span> "Fluffig Chic" Tapas & Prosecco (Dress code: avslappnat elegant)</p>
+                <p><span class="highlight">20:00</span> Bubbelbad och bastu</p><p>Kvällen avslutas med bubbelbad & bastu.</p>
             </div>
 
             <div class="day">
                 <h3>Lördag - Natur & Äventyr</h3>
-                <p><span class="highlight">09:00</span> Frukost på altanen (om vädret tillåter)</p>
-                <p><span class="highlight">10:00</span> Turridning med hästar i vacker natur</p>
+                <p><span class="highlight">09:00</span> Frukost i Stallstugan</p>
+                <p><span class="highlight">10:00</span> Promenad i härliga omgivningar</p>
+                <p><span class="highlight">13:00</span> Turridning med islandshästar i vacker natur</p>
+                <p><span class="highlight">17:00</span> Drink</p>
                 <p><span class="highlight">18:00</span> Middag & mys i boendet</p>
             </div>
 
