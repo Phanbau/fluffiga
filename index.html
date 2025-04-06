@@ -54,6 +54,7 @@
         .highlight {
             font-weight: bold;
             color: #d81b60;
+            font-size: 1.1em; /* Gör highlight ännu mer framträdande */
         }
 
         .budget {
@@ -85,54 +86,68 @@
             color: #777;
             font-size: 0.8em;
         }
+
+        .image-row {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .image-row img {
+            width: 30%;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="heart">💖 FLUFFIG HELG PÅ KYRKEKVARN! 💖</h1>
-        <p class="fluffy-text">Gör er redo för en underbar och <span style="font-weight: bold;">FLUFFIG</span> helg tillsammans, mina fantastiska tjejer! Vi åker till idylliska Stallstugan Kyrkekvarn för två nätter fyllda med skratt, mys och en massa härligheter!</p>
+        <p class="fluffy-text">Gör er redo för en underbar och <span style="font-weight: bold;">FLUFFIG</span> helg tillsammans, kära vänner! En resa till idylliska Stallstugan Kyrkekvarn väntar, med två nätter fyllda av skratt, mys och en massa härligheter!</p>
 
         <div class="event-details">
             <h2>📅 Vårt Fluffiga Äventyr i Maj</h2>
 
             <div class="day">
-                <h3>Ankomstdagen - Mys och Bubbel!</h3>
-                <p><span class="highlight">Ca kl. 14:00</span> - Ankomst till <span class="highlight">Stallstugan Kyrkekvarn</span>. Vi checkar in och landar i den mysiga atmosfären.</p>
-                <p><span class="highlight">Eftermiddag</span> - Fri tid för att utforska omgivningarna, ta en kopp te och bara <span class="fluffy-text">mysa</span>!</p>
-                <p><span class="highlight">Ca kl. 17:00</span> - Bubbel och umgänge! Vi skålar för vår fluffiga helg och njuter av goda drycker och snacks tillsammans.</p>
-                <p><span class="highlight">Senare på kvällen</span> - Gemensam middag (detaljer kommer!).</p>
-                <p><span class="highlight">Kvällen avslutas</span> - Med skvaller, skratt och kanske ett avkopplande bad eller bastu (om tillgängligt på plats!).</p>
+                <h3>Ankomstdagen - Tapas, Bubbel och Avkoppling!</h3>
+                <p><span class="highlight">Ca kl. 14:00</span> - Ankomst till <span class="highlight">Stallstugan Kyrkekvarn</span>. Incheckning och tid för att landa i den mysiga atmosfären.</p>
+                <p><span class="highlight">Eftermiddag</span> - Fri tid att utforska omgivningarna och njuta av den lugna miljön.</p>
+                <p><span class="highlight">Kväll</span> - En festlig <span class="highlight">tapasbuffé</span> väntar, ackompanjerad av goda <span class="highlight">drinkar</span>!</p>
+                <p><span class="highlight">Senare på kvällen</span> - Avkoppling i <span class="highlight">bubbelbadet och bastun</span> som ingår i boendet. Perfekt för lite extra <span class="fluffy-text">mys</span>!</p>
             </div>
 
             <div class="day">
-                <h3>Härliga Aktiviteter och Avkoppling!</h3>
+                <h3>Äventyr med Ponnys och Mysig Kväll!</h3>
                 <p><span class="highlight">Förmiddag</span> - Frukost i lugn och ro.</p>
-                <p><span class="highlight">Dagen</span> - Vi njuter av de <span class="highlight">härliga omgivningarna</span>! Kanske en promenad längs vattnet, utforska naturen eller bara lata oss i solen.</p>
-                <p><span class="highlight">Lunch</span> - En god lunch tillsammans.</p>
-                <p><span class="highlight">Eftermiddag</span> - Kanske blir det en <span class="highlight">kanotpaddling</span> på den glittrande sjön (beroende på väder och intresse)? Eller varför inte bara njuta av stillheten och läsa en bok?</p>
-                <p><span class="highlight">Sen eftermiddag</span> - Dusch och fix inför kvällen.</p>
-                <p><span class="highlight">Kväll</span> - Drink och förberedelser för en rolig kväll.</p>
-                <p><span class="highlight">Kvällen avslutas</span> - Med en <span class="highlight">härlig middag</span> och en <span class="highlight">spelkväll</span> fylld med skratt och utmaningar!</p>
+                <p><span class="highlight">Dagen</span> - Gör er redo för ett <span class="highlight">HÄRLIGT ÄVENTYR</span>! Vi beger oss på en <span class="highlight">TURRIDNING MED PONNYS</span> i de vackra omgivningarna. Detta blir ett <span class="highlight">verkligt highlight</span>!</p>
+                <p><span class="highlight">Eftermiddag</span> - Återkomst till Stallstugan och tid för avkoppling.</p>
+                <p><span class="highlight">Kväll</span> - Gemensam <span class="highlight">middag</span> i boendet, följt av <span class="highlight">mys</span> och trevligt umgänge. Kanske blir det en filmkväll eller fortsättning på gårdagens skratt?</p>
             </div>
 
             <div class="day">
-                <h3>Avresa - Men Minnen Kvarstår!</h3>
+                <h3>Avresa - Med Fluffiga Minnen!</h3>
                 <p><span class="highlight">Förmiddag</span> - Gemensam frukost.</p>
-                <p><span class="highlight">Ca kl. 11:00</span> - Hemfärd, fyllda med nya minnen och massor av <span class="fluffy-text">kärlek</span> och <span class="fluffy-text">glädje</span>!</p>
+                <p><span class="highlight">Ca kl. 11:00</span> - Utcheckning och hemfärd, fyllda med underbara minnen från vår <span class="fluffy-text">fluffiga</span> helg!</p>
             </div>
 
             <div class="budget">
                 <h2>💰 Preliminär Budget (per person)</h2>
-                <p>Boende: ca 950 kr (för två nätter)</p>
+                <p>Boende (inkl. bubbelbad & bastu): ca 950 kr (för två nätter)</p>
                 <p>Mat & dryck: ca 1000 kr (beroende på vad vi äter och dricker)</p>
-                <p>Eventuell aktivitet (t.ex. kanot): ca 250 kr (kan variera)</p>
+                <p>Turridning med ponnys: ca 250 kr (kan variera)</p>
                 <p>Totalt: ca 2200 kr (ungefärlig kostnad)</p>
                 <p><small>Observera att detta är en uppskattning och kan justeras.</small></p>
             </div>
 
-            <p>Vill du veta mer om detta underbara ställe? Kolla in <a href="https://kyrkekvarn.com/" target="_blank" class="link-button">Kyrkekvarns hemsida</a>!</p>
+            <p>Nyfiken på hur underbart det är på Stallstugan Kyrkekvarn? Kika in på <a href="https://kyrkekvarn.com/" target="_blank" class="link-button">Kyrkekvarns hemsida</a>!</p>
 
-            <p class="fluffy-text">Jag längtar så mycket efter att få spendera den här <span style="font-weight: bold;">fluffiga</span> helgen med er! <span class="heart">💕</span></p>
+            <div class="image-row">
+                <img src="https://kyrkekvarn.com/wp-content/uploads/2023/03/Kyrkekvarn-Stallstugan-exterio%CC%88r-1-1024x683.jpg" alt="Stallstugan Kyrkekvarn Exteriör">
+                <img src="https://kyrkekvarn.com/wp-content/uploads/2023/03/Kyrkekvarn-Boende-Dubbelrum-2-1024x683.jpg" alt="Stallstugan Kyrkekvarn Dubbelrum">
+                <img src="https://kyrkekvarn.com/wp-content/uploads/2023/03/Kyrkekvarn-Omgivning-Sjoe-1024x683.jpg" alt="Kyrkekvarn Omgivning Sjö">
+            </div>
+
+            <p class="fluffy-text">Ser så mycket fram emot denna <span style="font-weight: bold;">fluffiga</span> och minnesvärda helg tillsammans! <span class="heart">💕</span></p>
         </div>
     </div>
     <div class="footer">
