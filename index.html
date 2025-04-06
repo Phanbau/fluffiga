@@ -15,6 +15,12 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            animation: fadeIn 1s ease-in-out; /* Fade-in animation för sidan */
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         .container {
@@ -36,6 +42,12 @@
             color: #ff4081; /* Ännu en rosa nyans för kärlek! */
             font-size: 1.5em;
             margin-bottom: 10px;
+            animation: pulse 1.5s infinite alternate; /* Pulsation för hjärtat */
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
         .event-details {
@@ -113,6 +125,22 @@
             margin-top: 20px;
             line-height: 1.6;
         }
+
+        .day h3::before { /* Ikoner för varje dag */
+            content: '🗓️ '; /* Kalenderikon */
+        }
+
+        .budget h2::before { /* Ikon för budget */
+            content: '💰 '; /* Pengapåseikon */
+        }
+
+        .link-button::before { /* Ikon för länk */
+            content: '🔗 '; /* Länkikon */
+        }
+
+        .footer::before { /* Liten hjärtikon i footern */
+            content: '💖 ';
+        }
     </style>
 </head>
 <body>
@@ -148,10 +176,11 @@
 
             <div class="budget">
                 <h2>💰 Preliminär Budget</h2>
+                <p>Totalt: ca 2200 kr (ungefärlig kostnad)</p>
                 <p><small>Observera att detta är en uppskattning och kan justeras.</small></p>
             </div>
 
-            <p>Längtar ni också? Spana in <a href="https://kyrkekvarn.com/" target="_blank" class="link-button">Kyrkekvarns hemsida</a> för att se mer av detta underbara ställe!</p>
+            <p>Längtar ni också? Spana in <a href="https://kyrkekvarn.com/" target="_blank" class="link-button">🔗 Kyrkekvarns hemsida</a> för att se mer av detta underbara ställe!</p>
 
             <div class="image-row">
                 <img src="https://kyrkekvarn.com/wp-content/uploads/IMG_5959-900x430.jpg" alt="Stallstugan Kyrkekvarn Exteriör">
@@ -163,7 +192,7 @@
         </div>
     </div>
     <div class="footer">
-        Skapad med <span style="color: #e91e63;">fluff</span> och kärlek!
+        💖 Skapad med <span style="color: #e91e63;">fluff</span> och kärlek!
     </div>
 </body>
 </html>
