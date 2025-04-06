@@ -1,177 +1,489 @@
 <!DOCTYPE html>
 <html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/favicon.png" type="image/png">
     <title>Fluffig Helg på Kyrkekvarn!</title>
     <style>
+        /* Global Styles */
         body {
-            font-family: sans-serif;
-            background-color: #fceef3; /* Ljusrosa bakgrund - FLUFFIGT! */
-            color: #333;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f0e3;
+            color: #4a4a4a;
             margin: 0;
             padding: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: fadeIn 1s ease-in-out; /* Fade-in animation för sidan */
+            animation: fadeIn 1s ease-in-out;
         }
 
         @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         .container {
             background-color: #fff;
             border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            margin: 30px;
-            width: 80%;
-            max-width: 700px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin: 40px;
+            width: 90%;
+            max-width: 1200px;
             text-align: center;
+            transition: all 0.3s ease;
         }
 
-        h1, h2 {
-            color: #e91e63; /* Poppig rosa rubrik */
+        .container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            color: #d87093;
+            font-weight: 600;
+            line-height: 1.2;
+            letter-spacing: 0.5px;
+        }
+
+        h1 {
+            font-size: 3.5em; /* Mycket större inledande rubrik */
+            margin-bottom: 20px;
+            animation: mainTitle 1.2s ease-out; /* Ny animation */
+        }
+
+        @keyframes mainTitle {
+            0% {
+                opacity: 0;
+                transform: translateY(30px) scale(0.9);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        h2 {
+            font-size: 2.2em;
+            border-bottom: 2px solid #e0c2cf;
+            padding-bottom: 15px;
+            margin-top: 40px;
+        }
+
+        h3 {
+            font-size: 1.6em;
+            margin-bottom: 10px;
         }
 
         .heart {
-            color: #ff4081; /* Ännu en rosa nyans för kärlek! */
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            animation: pulse 1.5s infinite alternate; /* Pulsation för hjärtat */
+            color: #e6a9c4;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            display: block;
+            animation: pulse 1.5s infinite alternate;
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+            0% {
+                transform: scale(1);
+            }
+
+            100% {
+                transform: scale(1.05);
+            }
         }
 
         .event-details {
-            text-align: left;
-            margin-top: 20px;
-            line-height: 1.6;
+            text-align: center;
+            margin-top: 40px;
+            line-height: 1.8;
+            background-color: #fdf5e6;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease-out, scaleUp 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .day {
-            margin-bottom: 20px;
-            padding: 15px;
-            background-color: #ffebee; /* Ljusare rosa för sektioner */
-            border-radius: 10px;
-            border-left: 5px solid #e91e63;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5e0d0;
+        }
+
+        .day:last-child {
+            border-bottom: none;
         }
 
         .highlight {
-            font-weight: bold;
-            color: #d81b60;
-            font-size: 1.1em; /* Gör highlight ännu mer framträdande */
+            font-weight: 600;
+            color: #c08497;
         }
 
         .budget {
-            background-color: #b2ebf2; /* Ljusblå för budget - kontrasterar fint */
-            padding: 15px;
-            border-radius: 10px;
-            margin-top: 20px;
+            background-color: #f0f8ff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-top: 40px;
             text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
 
-        .budget h2::before { /* Ikon för budget */
-            content: '💰 '; /* Pengapåseikon */
+        .budget h2::before {
+            content: '💰 ';
+            margin-right: 5px;
         }
 
         .budget p {
-            margin: 5px 0;
+            margin: 10px 0;
+            font-size: 1.1em;
         }
 
         .link-button {
             display: inline-block;
-            background-color: #ffab91; /* Peach-färgad knapp */
-            color: white;
-            padding: 12px 25px; /* Lite större padding för bättre synlighet */
+            background-color: #d87093;
+            color: #fff;
+            padding: 12px 30px;
             text-decoration: none;
-            border-radius: 8px; /* Mer rundade hörn */
-            margin-top: 15px;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Liten skugga för lyft */
-            transition: background-color 0.3s ease; /* Mjuk övergång vid hover */
+            border-radius: 8px;
+            margin-top: 30px;
+            font-weight: 600;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            font-size: 1.1em;
         }
 
         .link-button:hover {
-            background-color: #ff8a65; /* Mörkare nyans vid hover */
+            background-color: #c06080;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
         .fluffy-text {
             font-style: italic;
-            color: #f06292; /* Ytterligare en rosa nyans för extra fluff! */
+            color: #e6a9c4;
+            font-size: 1.1em;
         }
 
         .footer {
-            margin-top: 30px;
+            margin-top: 50px;
             color: #777;
-            font-size: 0.8em;
+            font-size: 0.9em;
+            border-top: 1px solid #e0c2cf;
+            padding-top: 25px;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
         }
 
-        .footer::before { /* Liten hjärtikon i footern */
+        .footer:hover {
+            opacity: 1;
+        }
+
+        .footer::before {
             content: '💖 ';
+            margin-right: 5px;
         }
 
         .image-row {
             display: flex;
             justify-content: space-around;
-            margin-top: 20px;
+            margin-top: 40px;
         }
 
         .image-row img {
             width: 30%;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            object-fit: cover; /* För att bilderna ska fylla utrymmet bättre */
-            height: 150px; /* Justera höjden efter behov */
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            object-fit: cover;
+            height: 250px;
+            transition: transform 0.3s ease;
+        }
+
+        .image-row img:hover {
+            transform: scale(1.03);
         }
 
         .agenda-details {
-            text-align: left;
-            margin-top: 20px;
-            line-height: 1.6;
+            text-align: center;
+            margin-top: 40px;
+            line-height: 1.8;
+            background-color: #fdf5e6;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+            animation: fadeIn 1s ease-out, scaleUp 0.8s ease-out;
         }
 
-        .day h3::before { /* Ikoner för varje dag */
-            content: '🗓️ '; /* Kalenderikon */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes scaleUp {
+            0% {
+                transform: scale(0.95);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .agenda-details h2 {
+            text-align: center;
+            font-size: 4em;
+            animation: zoomIn 1s ease-out;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .day {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #f5e0d0;
+        }
+
+        .day:last-child {
+            border-bottom: none;
+        }
+
+        .day h3 {
+            font-size: 1.4em;
+            margin-bottom: 12px;
+            color: #c08497;
+        }
+
+        .day h3::before {
+            content: '🌸 ';
+            margin-right: 8px;
+        }
+
+        .horse-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .horse-image:hover {
+            transform: scale(1.01);
+        }
+
+        .agenda-title {
+            text-align: center;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .location {
+            background-color: #f5f0e1;
+            padding: 30px;
+            border-radius: 12px;
+            margin-top: 40px;
+            text-align: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .location h2::before {
+            content: '📍 ';
+            margin-right: 8px;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .map-container:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        .map-description {
+            font-size: 1em;
+            color: #666;
+            margin-top: 15px;
+        }
+
+        .map-link {
+            display: inline-block;
+            background-color: #a0c4ff;
+            color: #fff;
+            padding: 10px 25px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .map-link:hover {
+            background-color: #8ab0e6;
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                margin: 20px;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2.2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .image-row {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .image-row img {
+                width: 80%;
+                margin-bottom: 20px;
+                height: auto;
+            }
+
+            .map-iframe {
+                height: 300px;
+            }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap"
+        rel="stylesheet">
 </head>
+
 <body>
     <div class="container">
-        <h1 class="heart">💖 FLUFFIG HELG PÅ KYRKEKVARN! 💖</h1>
-        <p class="fluffy-text">Gör er redo för en underbar och <span style="font-weight: bold;">FLUFFIG</span> helg tillsammans, kära vänner! En resa till idylliska Stallstugan Kyrkekvarn väntar, med två nätter fyllda av skratt, stil, äventyr och massor av härligheter!</p>
+        <h1 class="heart">💖</h1>
+        <h1 class="fluffy-text">Fluffiga flickor på Kyrkekvarn 2025</h1>
+        <p class="fluffy-text" style="font-size: 1.2em;">En oförglömlig helg på idylliska Kyrkekvarn, fylld med glädje, stil och äventyr.</p>
+
+        <img src="https://kyrkekvarn.com/wp-content/uploads/IMG_5959-900x430.jpg" alt="Hästar på Kyrkekvarn" class="horse-image">
+
+        <h2 class="agenda-title">Fluffigas Vårträff 2025</h2>
 
         <div class="event-details">
-            <h2>📅 Vår Fluffiga Agenda i Maj</h2>
 
             <div class="day">
-                <h3>Fredag - Välkomstkväll med Stil</h3>
-                <p><span class="highlight">Ca kl. 14:00</span> - Ankomst till <span class="highlight">Stallstugan Kyrkekvarn</span>. Incheckning och tid att landa.</p>
-                <p><span class="highlight">Eftermiddag</span> - Fri tid att koppla av och göra sig redo för kvällen.</p>
-                <p><span class="highlight">Ca kl. 19:00</span> - <span class="highlight">"Fluffig Chic" Tapaskväll!</span> Vi njuter av en utsökt tapasmiddag med goda drinkar och bubblande <span class="highlight">Prosecco</span>. Kvällens dress code: avslappnat elegant med glada inslag!</p>
-                <p><span class="highlight">Efter middagen</span> - Avkoppling i det sköna <span class="highlight">bubbelbadet</span> med ett glas <span class="highlight">Prosecco</span>.</p>
-                <p><span class="highlight">Senare</span> - En smarrig <span class="highlight">dessert</span> väntar, följt av en avkopplande stund i <span class="highlight">bastun</span>.</p>
+                <h3>Fredag - Elegant Välkomst</h3>
+                <p><span class="highlight">14:00</span> Ankomst & Incheckning</p>
+                <p><span class="highlight">19:00</span> "Fluffig Chic" Tapas & Prosecco (Dress code: avslappnat elegant)</p>
+                <p>Kvällen avslutas med bubbelbad & bastu.</p>
             </div>
 
             <div class="day">
-                <h3>Lördag - Natur och Äventyr</h3>
-                <p><span class="highlight">Morgon</span> - En <span class="highlight">mysig frukost</span> avnjuts på altanen om vädret tillåter, med ljuvligt <span class="highlight">fågelkvitter</span> som bakgrundsmusik.</p>
-                <p><span class="highlight">Förmiddag/Eftermiddag</span> - Dags för ett spännande äventyr! Vi ger oss ut på en härlig <span class="highlight">TURRIDNING MED HÄSTAR</span> i den vackra naturen. Gör er redo för en fantastisk upplevelse!</p>
-                <p><span class="highlight">Efter ridturen</span> - Återkomst till Stallstugan och tid för att koppla av.</p>
-                <p><span class="highlight">Kväll</span> - Gemensam och avslappnad <span class="highlight">middag</span> i boendet. Kvällen fortsätter med <span class="highlight">mys</span>, spel och trevligt umgänge.</p>
+                <h3>Lördag - Natur & Äventyr</h3>
+                <p><span class="highlight">09:00</span> Frukost på altanen (om vädret tillåter)</p>
+                <p><span class="highlight">10:00</span> Turridning med hästar i vacker natur</p>
+                <p><span class="highlight">18:00</span> Middag & mys i boendet</p>
             </div>
 
             <div class="day">
-                <h3>Söndag - Avslutning</h3>
-                <p><span class="highlight">Förmiddag</span> - Gemensam frukost och utcheckning.</p>
-                <p><span class="highlight">Ca kl. 11:00</span> - Hemfärd med många fina minnen från vår <span class="fluffy-text">fluffiga</span> helg!</p>
+                <h3>Söndag - Avsked</h3>
+                <p><span class="highlight">09:00</span> Frukost</p>
+                <p><span class="highlight">11:00</span> Hemfärd</p>
+            </div>
+
+            <div class="location">
+                <h2>📍 Hitta till Kyrkekvarn</h2>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2114.5778217842694!2d13.843172277025198!3d57.99498357399584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465a5fc2a5f05925%3A0xa0a7fc81eea2c6cb!2sKyrkekvarn%20Turism%20AB!5e0!3m2!1sen!2sse!4v1743947766655!5m2!1sen!2sse"
+                        width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="map-iframe"></iframe>
+                </div>
+                <p class="map-description">
+                    Kyrkekvarn ligger vackert beläget i Småland, nära Jönköping.
+                </p>
+                <a href="https://www.google.com/maps/place/Kyrkekvarn+Turism+AB" target="_blank" class="map-link">
+                    Se på Google Maps
+                </a>
             </div>
 
             <div class="budget">
@@ -179,23 +491,26 @@
                 <p>Boende: ca 950:-</p>
                 <p>Mat & dryck: ca 1000:-</p>
                 <p>Ridtur: ca 550:-</p>
-                <p><span style="font-weight: bold;">Tot: ca 2500:-</span></p>
-                <p><small>Observera att detta är en uppskattning och kan justeras.</small></p>
+                <p><span style="font-weight: bold;">Totalt: ca 2500:-</span></p>
+                <p><small>Observera att detta är en uppskattning.</small></p>
             </div>
 
-            <p>Längtar ni också? Spana in <a href="https://kyrkekvarn.com/" target="_blank" class="link-button">🔗 Kyrkekvarns hemsida</a> för att se mer av detta underbara ställe!</p>
+            <a href="https://kyrkekvarn.com/" target="_blank" class="link-button">Kyrkekvarns Hemsida</a>
 
             <div class="image-row">
-                <img src="https://kyrkekvarn.com/wp-content/uploads/IMG_5959-900x430.jpg" alt="Stallstugan Kyrkekvarn Exteriör">
+                <img src="images/salen.jpg" alt="Stallstugan Kyrkekvarn Exteriör">
                 <img src="images/forsamling.jpg" alt="Stallstugan Kyrkekvarn Allrum">
                 <img src="images/vingård.jpg" alt="Kyrkekvarn Aktiviteter Hästar">
             </div>
 
-            <p class="fluffy-text">Detta kommer bli så <span style="font-weight: bold;">fluffigt</span> och fantastiskt! <span class="heart">💕</span></p>
+            <p class="fluffy-text">Vi ser fram emot en <span style="font-weight: bold;">fluffig</span> och fantastisk helg tillsammans! <span class="heart">💕</span></p>
         </div>
     </div>
     <div class="footer">
-        💖 Skapad med <span style="color: #e91e63;">fluff</span> och kärlek!
+        💖 Skapad med omtanke
     </div>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Playfair+Display:wght@400;600&display=swap"
+        rel="stylesheet">
 </body>
+
 </html>
