@@ -78,6 +78,14 @@
             text-align: center;
         }
 
+        .budget h2::before { /* Ikon för budget */
+            content: '💰 '; /* Pengapåseikon */
+        }
+
+        .budget p {
+            margin: 5px 0;
+        }
+
         .link-button {
             display: inline-block;
             background-color: #ffab91; /* Peach-färgad knapp */
@@ -106,6 +114,10 @@
             font-size: 0.8em;
         }
 
+        .footer::before { /* Liten hjärtikon i footern */
+            content: '💖 ';
+        }
+
         .image-row {
             display: flex;
             justify-content: space-around;
@@ -128,18 +140,6 @@
 
         .day h3::before { /* Ikoner för varje dag */
             content: '🗓️ '; /* Kalenderikon */
-        }
-
-        .budget h2::before { /* Ikon för budget */
-            content: '💰 '; /* Pengapåseikon */
-        }
-
-        .link-button::before { /* Ikon för länk */
-            content: '🔗 '; /* Länkikon */
-        }
-
-        .footer::before { /* Liten hjärtikon i footern */
-            content: '💖 ';
         }
     </style>
 </head>
@@ -176,7 +176,10 @@
 
             <div class="budget">
                 <h2>💰 Preliminär Budget</h2>
-                <p>Totalt: ca 2200 kr (ungefärlig kostnad)</p>
+                <p>Boende: ca 950:-</p>
+                <p>Mat & dryck: ca 1000:-</p>
+                <p>Ridtur: ca 550:-</p>
+                <p><span style="font-weight: bold;">Tot: ca 2500:-</span></p>
                 <p><small>Observera att detta är en uppskattning och kan justeras.</small></p>
             </div>
 
